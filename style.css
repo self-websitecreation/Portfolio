@@ -52,15 +52,7 @@ p {
     margin: 10px auto;
 }
 
-#info a {
-    display: inline-block;
-    margin-top: 12px;
-    padding: 10px 20px;
-    background-color: #0ea5e9;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-}
+
 
 progress {
     width: 220px;
@@ -99,4 +91,28 @@ footer a {
         flex-direction: column;
         gap: 10px;
     }
+}
+#hire-me-message{
+    margin-top: 12px;
+    padding: 10px;
+    background-color: #e5e7eb;
+    border-radius: 6px;
+    color:#456cbe
+}
+button {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 20px;
+    background-color: #0ea5e9;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+}
+#motivation-btn-message
+{
+     margin-top: 12px;
+    padding: 10px;
+    background-color: #e5e7eb;
+    border-radius: 6px;
+    color:#456cbe
 }
