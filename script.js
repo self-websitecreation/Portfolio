@@ -3,7 +3,7 @@ let hireMe= document.getElementById("hire-me");
 let message = document.getElementById("hire-me-message");
 function showMessage(element ,text )
 {
-    element.innerHTML=text ;
+    element.textContent=text ;
      
 }
 hireMe.addEventListener("click", function ()
@@ -27,11 +27,12 @@ form.addEventListener("submit",function(event){
     event.preventDefault();
   let name=userName.value; 
   let mail=userEmail.value;
-   showMessage(formMsg,"Thank you "+name+"! "+" for Connecting with me! We will reply to you at  "+mail+"<br> Message sent" );
+let msg=userMsg.value;
+showMessage(  formMsg,"Thank you "+name+"! "+" for Connecting with me!\nWe will reply to you at  "+mail+"\nYou wrote "+msg+" \nMessage sent" );
    
 console.log(name);
 console.log(mail);
-let msg=userMsg.value;
+
 console.log(msg);
 let submitBtn=document.getElementById("submit_btn");
 userName.value="";
