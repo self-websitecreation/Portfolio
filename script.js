@@ -1,13 +1,21 @@
+// hire me button 
 let hireMe= document.getElementById("hire-me");
 let message = document.getElementById("hire-me-message");
+function showMessage(element ,text )
+{
+    element.innerHTML=text ;
+     
+}
 hireMe.addEventListener("click", function ()
 {
-    message.textContent="Thank you! Please fill the contact form below.";
+ showMessage(message ,"Thank you! Please fill the contact form below.");
 });
+
+//motivational button 
 let motivational =document.getElementById("motivation-btn");
 let motivationMsg=document.getElementById("motivation-btn-message");
 motivational.addEventListener("click",function(){
-motivationMsg.textContent="Consistency beats Talent .";
+ showMessage( motivationMsg,"Consistency beats Talent ." );
 });
  
 let userName=document.getElementById("name");
@@ -19,7 +27,8 @@ form.addEventListener("submit",function(event){
     event.preventDefault();
   let name=userName.value; 
   let mail=userEmail.value;
-    formMsg.innerHTML= "Thank you "+name+"!"+"for Connecting with me !<br>We will reply to you at "+mail+"<br>Message sent"; 
+   showMessage(formMsg,"Thank you "+name+"! "+" for Connecting with me! We will reply to you at  "+mail+"<br> Message sent" );
+   
 console.log(name);
 console.log(mail);
 let msg=userMsg.value;
