@@ -8,8 +8,7 @@ body {
     font-family: 'Poppins', sans-serif;
     text-align: center;
     line-height: 1.6;
-    color:#222;
-   
+    color: #222;
 }
 
 header {
@@ -53,8 +52,6 @@ p {
     margin: 10px auto;
 }
 
-
-
 progress {
     width: 220px;
     height: 18px;
@@ -86,24 +83,24 @@ footer a {
     margin: 0 8px;
     text-decoration: none;
 }
-#hire-me-message, #motivation-btn-message, #form_msg{
+
+#motivation-btn-message {
     margin-top: 12px;
     padding: 10px;
-    background-color: #e5e7eb;
+    background-color: #e5e7eb;;
     border-radius: 6px;
-    color:#456cbe;
+    color: #456cbe;
     white-space: pre-wrap;
 }
+
 button {
     display: inline-block;
     margin-top: 12px;
     padding: 10px 20px;
     background-color: #0ea5e9;
     color: white;
-    text-decoration: none;
     border-radius: 6px;
 }
-
 
 @media (max-width: 768px) {
     nav {
@@ -111,7 +108,41 @@ button {
         gap: 10px;
     }
 }
-button:disabled, input:disabled {
+
+button:disabled,
+input:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+}
+
+.success {
+    margin-top: 12px;
+    padding: 10px;
+    background-color: #a8f8c0;
+    border-radius: 6px;
+    white-space: pre-wrap;
+    color: green;
+}
+
+.error {
+    margin-top: 12px;
+    padding: 10px;
+    background-color: #f7a58d;
+    border-radius: 6px;
+    white-space: pre-wrap;
+    color: red;
+}
+.skill-item {
+    margin: 15px 0;
+}
+
+.skill-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.skill-progress {
+    width: 250px;
+    height: 18px;
 }
