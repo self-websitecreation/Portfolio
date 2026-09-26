@@ -1,3 +1,29 @@
+let theme = document.getElementById("Theme");
+let count = 0;
+
+let saved = localStorage.getItem("theme");
+if (saved === "dark") {
+    document.body.classList.add("dark");
+    theme.textContent = "☀️ Light Mode";
+    count = 1;
+} else {
+    theme.textContent = "🌙 Dark Mode";
+    count = 0;
+}
+
+theme.addEventListener("click", function () {
+    count = (count + 1) % 2;
+
+    if (count === 1) {
+        theme.textContent = "☀️ Light Mode";
+        document.body.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+    } else {
+        theme.textContent = "🌙 Dark Mode";
+        document.body.classList.remove("dark");
+        localStorage.setItem("theme", "light");
+    }
+});
 // hire me button 
 let hireMe= document.getElementById("hire-me");
 let message = document.getElementById("hire-me-message");
@@ -19,6 +45,17 @@ hireMe.addEventListener("click", function ()
 let motivational =document.getElementById("motivation-btn");
 let motivationMsg=document.getElementById("motivation-btn-message");
 motivational.addEventListener("click",function(){
+    motivationMsg.hidden = false ; 
+    let saved = localStorage.getItem("theme");
+    if (saved==="dark")
+    {
+ motivationMsg.classList.add("dark");
+    }
+    else{
+motivationMsg.classList.add("light");
+    }
+   
+    
  showMessage( motivationMsg,"Consistency beats Talent ." );
  
 
@@ -93,49 +130,51 @@ userMsg.addEventListener("input", function(){
 });
 
 
-form.addEventListener("submit", function(event) {
+form.addEventListener("submit",function(event){
     event.preventDefault();
+  let name=userName.value; 
+  let mail=userEmail.value;
+let msg=userMsg.value;
+if(name.length<5)
+{
+  
+    showMessage(formMsg,"Please enter a valid name !");
+      formMsg.classList.add("error");
+    
+  return ;
+}
+else if(mail.length<5)
+{
+      formMsg.classList.add("error");
+     showMessage(formMsg,"Please enter a valid Email !");
 
-    let name = userName.value.trim();
-    let mail = userEmail.value.trim();
-    let msg = userMsg.value.trim();
+    return ;
+}
+else if (msg.length<10)
+{
+       formMsg.classList.add("error");
+     showMessage(formMsg,"Please enter Minimum 10 Character !");
+    return;
+}
+else 
+{
+      formMsg.classList.remove("error");
+    
+      formMsg.classList.add("success");
+let text = createMessage(name,mail,msg);
+showMessage(  formMsg, text);
+   
+console.log(name);
+console.log(mail);
 
-    // Overall Validation
-    if (name.length < 5) {
-        showMessage(formMsg, "Please enter a valid name (minimum 5 characters)!");
-        formMsg.classList.add("error");
-        formMsg.classList.remove("success");
-        return;
-    }
-
-    if (mail.length < 5 || !isValidEmail(mail)) {
-        showMessage(formMsg, "Please enter a valid Email (include @ and .)!");
-        formMsg.classList.add("error");
-        formMsg.classList.remove("success");
-        return;
-    }
-
-    if (msg.length < 10) {
-        showMessage(formMsg, "Please enter Minimum 10 Characters in Message!");
-        formMsg.classList.add("error");
-        formMsg.classList.remove("success");
-        return;
-    }
-
-    // Agar sab sahi hai toh success
-    formMsg.classList.remove("error");
-    formMsg.classList.add("success");
-
-    let text = createMessage(name, mail, msg);
-    showMessage(formMsg, text);
-
-    // Form clear karo
-    userName.value = "";
-    userEmail.value = "";
-    userMsg.value = "";
-
-    let submitBtn = document.getElementById("submit_btn");
-    submitBtn.disabled = true;
+console.log(msg);
+let submitBtn=document.getElementById("submit_btn");
+userName.value="";
+userEmail.value="";
+userMsg.value="";
+submitBtn.disabled= true;
+}
+ 
 });
 
 function square(num)
@@ -215,4 +254,44 @@ if(skills=="react.js")
     console.log("yes this is react");
 }
  
+});
+
+let projectArray = [
+    {
+        title: "Personal Portfolio Website",
+        description: "A responsive personal portfolio built with HTML, CSS and JavaScript.",
+        tech: ["HTML", "CSS", "JavaScript"],
+        link: "https://self-websitecreation.github.io/Portfolio/"
+    }
+];
+
+let container = document.getElementById("project_container");
+
+projectArray.forEach(function(project) {
+    
+
+    let card = document.createElement("div");
+    card.classList.add("project-card");
+
+    
+    let title = document.createElement("h3");
+    title.textContent = project.title;
+
+    // Description
+    let desc = document.createElement("p");
+    desc.textContent = project.description;
+
+    // Technologies
+    let tech = document.createElement("p");
+    tech.textContent = "Technologies: " + project.tech.join(", ");
+
+    // Link
+    let link = document.createElement("a");
+    link.href = project.link;
+    link.textContent = "View Project";
+    link.target = "_blank";
+
+   
+    card.append(title, desc, tech, link);
+    container.append(card);
 });
