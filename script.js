@@ -36,8 +36,20 @@ function showMessage(element ,text )
 
 hireMe.addEventListener("click", function ()
 {
- showMessage(message ,"Thank you! Please fill the contact form below.");
+
+    count= (count+1)% 2;
+    if (count==1 )
+    {
+
+        message.hidden= true ;
+    }
+    else 
+    {
+         message.hidden=false;
+        showMessage(message ,"Thank you! Please fill the contact form below.");
  message.classList.add("success"); 
+    }
+ 
 });
 
 
@@ -56,9 +68,19 @@ motivationMsg.classList.add("light");
     }
    
     
- showMessage( motivationMsg,"Consistency beats Talent ." );
- 
 
+ 
+count= (count +1)% 2 ;
+if (count==1)
+{
+    motivationMsg.hidden= true ;
+   
+}
+else{
+    motivationMsg.hidden= false ;
+  showMessage( motivationMsg,"Consistency beats Talent ." );
+
+}
 
 });
  
