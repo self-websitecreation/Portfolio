@@ -33,12 +33,12 @@ function showMessage(element ,text )
      
 }
 
-
+hireCount=0 ; 
 hireMe.addEventListener("click", function ()
 {
 
-    count= (count+1)% 2;
-    if (count==1 )
+   hireCount= (hireCount+1)% 2;
+    if (hireCount==1 )
     {
 
         message.hidden= true ;
@@ -54,6 +54,7 @@ hireMe.addEventListener("click", function ()
 
 
 //motivational button 
+ let motivationalCount=0; 
 let motivational =document.getElementById("motivation-btn");
 let motivationMsg=document.getElementById("motivation-btn-message");
 motivational.addEventListener("click",function(){
@@ -66,12 +67,8 @@ motivational.addEventListener("click",function(){
     else{
 motivationMsg.classList.add("light");
     }
-   
-    
-
- 
-count= (count +1)% 2 ;
-if (count==1)
+motivationalCount= (motivationalCount +1)% 2 ;
+if (motivationalCount==1)
 {
     motivationMsg.hidden= true ;
    
@@ -282,8 +279,14 @@ let projectArray = [
     {
         title: "Personal Portfolio Website",
         description: "A responsive personal portfolio built with HTML, CSS and JavaScript.",
-        tech: ["HTML", "CSS", "JavaScript"],
+        tech: ["html", "css", "JavaScript"],
         link: "https://self-websitecreation.github.io/Portfolio/"
+    },
+    {
+        title: "To Do WebApplication",
+        description:"A responsive To DO List that Help full for daily use. ",
+        tech: ["html", "css", "JavaScript"],
+         link: "https://self-websitecreation.github.io/To-Do-Web-Application/"
     }
 ];
 
@@ -305,7 +308,10 @@ projectArray.forEach(function(project) {
 
     // Technologies
     let tech = document.createElement("p");
-    tech.textContent = "Technologies: " + project.tech.join(", ");
+let newValue = project.tech.map(function (item) {
+    return item.toUpperCase();
+});
+tech.textContent = "Technologies: " + newValue.join(", ");
 
     // Link
     let link = document.createElement("a");

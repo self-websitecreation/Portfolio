@@ -25,6 +25,12 @@ nav {
     padding: 14px;
 }
 
+.navigation_div
+{
+display: flex ;
+
+gap:5px ;
+}
 nav a {
     color: white;
     text-decoration: none;
@@ -270,4 +276,10 @@ body.dark #motivation-btn-message {
 body.light  #motivation-btn-message {
     background-color: white;
     color: rgb(74, 74, 134);
+}
+.footer 
+{
+    display: flex ;
+  flex-direction: row ;
+  justify-content: space-evenly;
 }
